@@ -19,6 +19,11 @@
 	},
 	"homepage": "https://github.com/corozb/adopt-me#readme",
 	"devDependencies": {
+		"babel-eslint": "^10.1.0",
+		"eslint-plugin-import": "^2.20.1",
+		"eslint-plugin-jsx-a11y": "^6.2.3",
+		"eslint-plugin-react": "^7.19.0",
+		"eslint-plugin-react-hooks": "^3.0.0",
 		"parcel-bundler": "^1.12.4"
 	},
 	"dependencies": {
