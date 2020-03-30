@@ -10,6 +10,7 @@ import React from 'react';
 
 import pet from '@frontendmasters/pet';
 import Carousel from './Carousel';
+import ErrorBoundary from './ErrorBoundary';
 
 class Details extends React.Component {
 	constructor(props) {
@@ -21,6 +22,8 @@ class Details extends React.Component {
 	}
 
 	componentDidMount() {
+		// throw new Error('after 5 seconds');
+
 		pet.animal(+this.props.match.params.id).then(({ animal }) => {
 			this.setState({
 				name: animal.name,
@@ -54,4 +57,10 @@ class Details extends React.Component {
 	}
 }
 
-export default Details;
+export default function DetailsWithErrorBoundary(props) {
+	return (
+		<ErrorBoundary>
+			<Details {...props} />
+		</ErrorBoundary>
+	);
+}
