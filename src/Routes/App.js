@@ -5,7 +5,7 @@ import Details from '../components/Details';
 import ThemeContext from '../context/ThemeContext';
 
 const App = () => {
-	const themeHook = useState('darkblue');
+	const themeHook = useState('blue');
 
 	return (
 		<React.StrictMode>
