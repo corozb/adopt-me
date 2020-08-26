@@ -3,8 +3,6 @@ import React from 'react'
 import './Pet.css'
 
 const Pet = ({ id, animal, name, breed, media, location }) => {
-	console.log('id', id)
-
 	let hero
 
 	!media.length

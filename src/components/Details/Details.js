@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
+import Carousel from '../Carousel/Carousel'
 import './Details.css'
 
 const Details = ({ match }) => {
@@ -26,6 +27,7 @@ const Details = ({ match }) => {
 				<h2>Loading...</h2>
 			) : (
 				<div className='details'>
+					<Carousel media={animal.photos} />
 					<div>
 						<h1>{animal.name}</h1>
 						<h2>{`${animal.gender} - ${animal.breeds.primary} - ${animal.contact.address.city}, ${animal.contact.address.state} `}</h2>

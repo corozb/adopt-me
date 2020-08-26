@@ -3,8 +3,6 @@ import React from 'react'
 import Pet from '../Pet/Pet'
 
 const Results = ({ pets }) => {
-	console.log('pet', pets)
-
 	return (
 		<div className='search'>
 			{!pets.length ? (
