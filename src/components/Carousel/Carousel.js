@@ -5,8 +5,8 @@ import './Carousel.css'
 const Carousel = ({ media }) => {
 	const [photos, setPhotos] = useState([])
 	const [active, setActive] = useState(0)
-	/* eslint-disable-next-line */
-	let photo
+
+	let photo // eslint-disable-line no-unused-vars
 
 	useEffect(() => {
 		media.length

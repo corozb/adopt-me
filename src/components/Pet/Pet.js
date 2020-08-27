@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import './Pet.css'
 
@@ -10,7 +11,7 @@ const Pet = ({ id, animal, name, breed, media, location }) => {
 		: (hero = media[0].small)
 
 	return (
-		<a href={`/details/${id}`} className='pet'>
+		<Link to={`/details/${id}`} className='pet'>
 			<div className='image-container'>
 				<img src={hero} alt={name} />
 			</div>
@@ -18,7 +19,7 @@ const Pet = ({ id, animal, name, breed, media, location }) => {
 				<h1>{name}</h1>
 				<h2>{`${animal} - ${breed} - ${location}`}</h2>
 			</div>
-		</a>
+		</Link>
 	)
 }
 

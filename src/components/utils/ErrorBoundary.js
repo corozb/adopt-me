@@ -13,8 +13,6 @@ const ErrorBoundary = () => {
 		setTimeout(() => setSeconds(seconds - 1), 1000)
 	})
 
-	console.log('redirect', redirect)
-
 	return (
 		<>
 			{redirect ? <Redirect to='/' noThrow /> : null}

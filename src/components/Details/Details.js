@@ -1,13 +1,16 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 
 import Carousel from '../Carousel/Carousel'
+import ErrorBoundary from '../utils/ErrorBoundary'
+import ThemeContext from '../utils/ThemeContex'
+
 import './Details.css'
-import ErrorBoundary from '../ErrorBoundary'
 
 const Details = ({ match }) => {
 	const [animal, setAnimal] = useState([])
 	const [loading, setLoading] = useState(true)
 	const [dataError, setDataError] = useState(true)
+	const [theme] = useContext(ThemeContext)
 
 	const animalId = match.params.id
 	const API_URL = 'http://pets.dev-apis.com/animals/'
@@ -38,7 +41,10 @@ const Details = ({ match }) => {
 					<div>
 						<h1>{animal.name}</h1>
 						<h2>{`${animal.gender} - ${animal.breeds.primary} - ${animal.contact.address.city}, ${animal.contact.address.state} `}</h2>
-						<button>Adopt {animal.name}</button>
+
+						<button style={{ backgroundColor: theme }}>
+							Adopt {animal.name}
+						</button>
 						<p>{animal.description}</p>
 					</div>
 				</div>
