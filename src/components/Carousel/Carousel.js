@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
+import './Carousel.css'
+
 const Carousel = ({ media }) => {
 	const [photos, setPhotos] = useState([])
 	const [active, setActive] = useState(0)

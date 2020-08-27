@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react'
 
 import Carousel from '../Carousel/Carousel'
 import './Details.css'
+import ErrorBoundary from '../ErrorBoundary'
 
 const Details = ({ match }) => {
-	const [animal, setAanimal] = useState([])
+	const [animal, setAnimal] = useState([])
 	const [loading, setLoading] = useState(true)
+	const [dataError, setDataError] = useState(true)
 
 	const animalId = match.params.id
 	const API_URL = 'http://pets.dev-apis.com/animals/'
@@ -13,19 +15,24 @@ const Details = ({ match }) => {
 	const fetchData = async () => {
 		const response = await fetch(`${API_URL}${animalId}`)
 		const data = await response.json()
-		setAanimal(data.animal)
+		setAnimal(data.animal)
 		setLoading(false)
+		if (!data.error) {
+			setDataError(false)
+		}
 	}
 
 	useEffect(() => {
 		fetchData()
 	}, [])
 
+	if (loading) {
+		return <h2>Loading...</h2>
+	}
+
 	return (
 		<>
-			{loading ? (
-				<h2>Loading...</h2>
-			) : (
+			{!dataError ? (
 				<div className='details'>
 					<Carousel media={animal.photos} />
 					<div>
@@ -35,6 +42,8 @@ const Details = ({ match }) => {
 						<p>{animal.description}</p>
 					</div>
 				</div>
+			) : (
+				<ErrorBoundary />
 			)}
 		</>
 	)
