@@ -1,5 +1,6 @@
-import React from 'react';
-import Pet from './Pet';
+import React from 'react'
+
+import Pet from '../Pet/Pet'
 
 const Results = ({ pets }) => {
 	return (
@@ -9,18 +10,18 @@ const Results = ({ pets }) => {
 			) : (
 				pets.map((pet) => (
 					<Pet
-						animal={pet.species}
 						key={pet.id}
+						id={pet.id}
+						animal={pet.type}
 						name={pet.name}
 						breed={pet.breeds.primary}
 						media={pet.photos}
-						location={`${pet.contact.address.city}, ${pet.contact.address.state}`}
-						id={pet.id}
+						location={`${pet.contact.address.city} - ${pet.contact.address.state}`}
 					/>
 				))
 			)}
 		</div>
-	);
-};
+	)
+}
 
-export default Results;
+export default Results
