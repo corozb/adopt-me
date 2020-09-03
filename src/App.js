@@ -1,17 +1,17 @@
 import React, { useState } from 'react'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
-import SearchParams from './components/SearchParams/SearchParams'
-import Details from './components/Details/Details'
-import ThemeContext from './components/utils/ThemeContex'
-import './App.css'
+import SearchParams from './SearchParams'
+import Details from './Details'
+import ThemeContext from './ThemeContext'
+import './style.css'
 
 function App() {
 	const themeHook = useState('darkblue')
 
 	return (
-		<div>
-			<ThemeContext.Provider value={themeHook}>
+		<ThemeContext.Provider value={themeHook}>
+			<div>
 				<Router>
 					<header>
 						<Link to='/'>
@@ -21,8 +21,8 @@ function App() {
 					<Route path='/' exact component={SearchParams} />
 					<Route path='/details/:id' exact component={Details} />
 				</Router>
-			</ThemeContext.Provider>
-		</div>
+			</div>
+		</ThemeContext.Provider>
 	)
 }
 
